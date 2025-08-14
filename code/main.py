@@ -6,7 +6,7 @@ import time
 from datetime import datetime, timezone
 
 # Replace with your ACTUAL GitHub Personal Access Token (generate at https://github.com/settings/tokens)
-GITHUB_TOKEN = os.getenv("GITHUB_TOEKN")  # <-- CHANGE THIS!
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # <-- CHANGE THIS!
 
 # GitHub GraphQL API endpoint
 ENDPOINT = 'https://api.github.com/graphql'
