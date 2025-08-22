@@ -1,14 +1,15 @@
 import os
-
 import requests
 import json
 import time
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+import csv
 
-# Replace with your ACTUAL GitHub Personal Access Token (generate at https://github.com/settings/tokens)
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # <-- CHANGE THIS!
+load_dotenv()
 
-# GitHub GraphQL API endpoint
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+
 ENDPOINT = 'https://api.github.com/graphql'
 
 # Minimal GraphQL query template for fetching repo names only (paginated)
@@ -65,6 +66,7 @@ query {
 }
 '''
 
+
 def run_query(query, variables=None, retries=3):
     headers = {
         'Authorization': f'Bearer {GITHUB_TOKEN}',
@@ -87,6 +89,7 @@ def run_query(query, variables=None, retries=3):
             print(f"Other error: {e}")
     return None
 
+
 def main():
     # Test simple query
     print("Testing simple query...")
@@ -97,13 +100,31 @@ def main():
         print("Simple query failed. Check token and network.")
         return
 
-    # Step 1: Fetch list of top 100 repo names using minimal paginated search
-    print("\nFetching list of top 100 repo names...")
+    csv_filename = f"github_repos_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    report_filename = "../report_initial.md"
+
+    # Define headers for CSV
+    headers = [
+        "Repository",
+        "Age (days)",
+        "Created Date",
+        "Accepted PRs",
+        "Releases",
+        "Days Since Update",
+        "Primary Language",
+        "Closed Issues Ratio"
+    ]
+
+    # Collect all repo data
+    repo_data_list = []
+
+    # Step 1: Fetch list of top 1000 repo names using minimal paginated search
+    print("\nFetching list of top 1000 repo names...")
     all_repo_names = []
     after = None
     has_next = True
     pages_fetched = 0
-    max_pages = 4  # For 100 repos (25 * 4)
+    max_pages = 40  # For 100 repos (25 * 4)
 
     while has_next and pages_fetched < max_pages:
         variables = {'after': after}
@@ -118,7 +139,8 @@ def main():
         search = result['data']['search']
         edges = search['edges']
         if not edges:
-            print(f"Warning: No repos returned for page {pages_fetched + 1}. Full response:", json.dumps(result, indent=2))
+            print(f"Warning: No repos returned for page {pages_fetched + 1}. Full response:",
+                  json.dumps(result, indent=2))
         else:
             for edge in edges:
                 all_repo_names.append(edge['node']['nameWithOwner'])
@@ -127,12 +149,12 @@ def main():
         page_info = search['pageInfo']
         after = page_info['endCursor']
         has_next = page_info['hasNextPage']
-        pages_fetched += 1  # Fixed typo (was 'స')
+        pages_fetched += 1
 
     print(f"Collected {len(all_repo_names)} repo names.")
 
-    # Step 2: Fetch full data for each repo one by one and print immediately
-    print("\nFetching and printing data for each repo one by one...")
+    # Step 2: Fetch full data for each repo one by one and collect data
+    print(f"\nFetching data for each repo...")
     for idx, name_with_owner in enumerate(all_repo_names, 1):
         print(f"\nProcessing repo {idx}/{len(all_repo_names)}: {name_with_owner}")
         owner, name = name_with_owner.split('/')
@@ -161,6 +183,20 @@ def main():
         closed_issues = repo['closedIssues']['totalCount']
         issues_ratio = (closed_issues / total_issues) if total_issues > 0 else 0
 
+        # Prepare data row
+        row = [
+            name_with_owner,
+            age_days,
+            created_at.date().strftime('%Y-%m-%d'),
+            prs_accepted,
+            releases_count,
+            days_since_update,
+            language,
+            round(issues_ratio, 2)
+        ]
+
+        repo_data_list.append(row)
+
         print(f"Repository: {name_with_owner}")
         print(f"  Age (days): {age_days} (Created on {created_at.date()})")
         print(f"  Accepted PRs: {prs_accepted}")
@@ -172,7 +208,51 @@ def main():
 
         time.sleep(1)  # Delay to avoid rate limiting
 
-    print(f"All {len(all_repo_names)} repos processed.")
+    # Write to CSV
+    print(f"\nSaving data to CSV file: {csv_filename}")
+    with open(csv_filename, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(headers)
+        writer.writerows(repo_data_list)
+
+    # Create initial report with informal hypotheses
+    print(f"\nGenerating initial report: {report_filename}")
+    with open(report_filename, 'w', encoding='utf-8') as f:
+        f.write("# Relatório Inicial - Laboratório 01\n\n")
+        f.write("## Introdução e Hipóteses Informais\n\n")
+        f.write(
+            "Neste relatório inicial, definimos hipóteses informais para cada questão de pesquisa (RQ) com base em expectativas comuns sobre repositórios populares no GitHub. Essas hipóteses serão testadas com os dados coletados.\n\n")
+
+        f.write("### RQ 01: Sistemas populares são maduros/antigos?\n")
+        f.write(
+            "Hipótese: Sim, a maioria dos repositórios populares tem mais de 5 anos de idade (mediana > 1825 dias), pois projetos maduros atraem mais estrelas ao longo do tempo.\n\n")
+
+        f.write("### RQ 02: Sistemas populares recebem muita contribuição externa?\n")
+        f.write(
+            "Hipótese: Sim, repositórios populares recebem muitas contribuições, com mediana de pull requests aceitas > 1000, devido à visibilidade.\n\n")
+
+        f.write("### RQ 03: Sistemas populares lançam releases com frequência?\n")
+        f.write(
+            "Hipótese: Não necessariamente, muitos projetos populares são bibliotecas ou frameworks com poucas releases formais (mediana < 50), preferindo atualizações contínuas.\n\n")
+
+        f.write("### RQ 04: Sistemas populares são atualizados com frequência?\n")
+        f.write(
+            "Hipótese: Sim, a maioria é atualizada recentemente, com mediana de dias desde a última atualização < 30 dias.\n\n")
+
+        f.write("### RQ 05: Sistemas populares são escritos nas linguagens mais populares?\n")
+        f.write(
+            "Hipótese: Sim, a maioria usa linguagens como JavaScript, Python e Java, com contagem mostrando essas como as top 3.\n\n")
+
+        f.write("### RQ 06: Sistemas populares possuem um alto percentual de issues fechadas?\n")
+        f.write(
+            "Hipótese: Sim, repositórios populares mantêm issues bem gerenciadas, com mediana de razão de issues fechadas > 0.8 (80%).\n\n")
+
+        f.write("## Próximos Passos\n")
+        f.write(
+            "Na próxima sprint (Lab01S03), analisaremos os dados do arquivo CSV para calcular medianas, contagens e visualizar os resultados, comparando com essas hipóteses.\n")
+
+    print(f"All {len(repo_data_list)} repos processed. CSV and initial report generated.")
+
 
 if __name__ == "__main__":
     main()
