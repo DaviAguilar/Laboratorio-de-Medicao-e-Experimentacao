@@ -214,44 +214,8 @@ def main():
         writer = csv.writer(f)
         writer.writerow(headers)
         writer.writerows(repo_data_list)
+    print(f"CSV file '{csv_filename}' created successfully.")
 
-    # Create initial report with informal hypotheses
-    print(f"\nGenerating initial report: {report_filename}")
-    with open(report_filename, 'w', encoding='utf-8') as f:
-        f.write("# Relatório Inicial - Laboratório 01\n\n")
-        f.write("## Introdução e Hipóteses Informais\n\n")
-        f.write(
-            "Neste relatório inicial, definimos hipóteses informais para cada questão de pesquisa (RQ) com base em expectativas comuns sobre repositórios populares no GitHub. Essas hipóteses serão testadas com os dados coletados.\n\n")
-
-        f.write("### RQ 01: Sistemas populares são maduros/antigos?\n")
-        f.write(
-            "Hipótese: Sim, a maioria dos repositórios populares tem mais de 5 anos de idade (mediana > 1825 dias), pois projetos maduros atraem mais estrelas ao longo do tempo.\n\n")
-
-        f.write("### RQ 02: Sistemas populares recebem muita contribuição externa?\n")
-        f.write(
-            "Hipótese: Sim, repositórios populares recebem muitas contribuições, com mediana de pull requests aceitas > 1000, devido à visibilidade.\n\n")
-
-        f.write("### RQ 03: Sistemas populares lançam releases com frequência?\n")
-        f.write(
-            "Hipótese: Não necessariamente, muitos projetos populares são bibliotecas ou frameworks com poucas releases formais (mediana < 50), preferindo atualizações contínuas.\n\n")
-
-        f.write("### RQ 04: Sistemas populares são atualizados com frequência?\n")
-        f.write(
-            "Hipótese: Sim, a maioria é atualizada recentemente, com mediana de dias desde a última atualização < 30 dias.\n\n")
-
-        f.write("### RQ 05: Sistemas populares são escritos nas linguagens mais populares?\n")
-        f.write(
-            "Hipótese: Sim, a maioria usa linguagens como JavaScript, Python e Java, com contagem mostrando essas como as top 3.\n\n")
-
-        f.write("### RQ 06: Sistemas populares possuem um alto percentual de issues fechadas?\n")
-        f.write(
-            "Hipótese: Sim, repositórios populares mantêm issues bem gerenciadas, com mediana de razão de issues fechadas > 0.8 (80%).\n\n")
-
-        f.write("## Próximos Passos\n")
-        f.write(
-            "Na próxima sprint (Lab01S03), analisaremos os dados do arquivo CSV para calcular medianas, contagens e visualizar os resultados, comparando com essas hipóteses.\n")
-
-    print(f"All {len(repo_data_list)} repos processed. CSV and initial report generated.")
 
 
 if __name__ == "__main__":
