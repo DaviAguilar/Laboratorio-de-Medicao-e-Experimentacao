@@ -22,8 +22,14 @@ Hipótese: Sim, a maioria usa linguagens como JavaScript, Python e Java, com con
 ### RQ 06: Sistemas populares possuem um alto percentual de issues fechadas?
 Hipótese: Sim, repositórios populares mantêm issues bem gerenciadas, com mediana de razão de issues fechadas > 0.8 (80%).
 
+## Metodologia
+- Consulta realizada via API GraphQL do GitHub, com paginação, coletando os 1.000 repositórios mais populares.  
+- Dados extraídos incluem idade, número de pull requests aceitos, releases, data da última atualização, linguagem principal e issues abertas/fechadas.  
+- Todos os dados foram armazenados em arquivo `.csv` para análise posterior.  
+
 ## Próximos Passos
 Na próxima sprint (Lab01S03), analisaremos os dados do arquivo CSV para calcular medianas, contagens e visualizar os resultados, comparando com essas hipóteses.
 
-Horario e data da mineração: 21/08/2025
-20:46 --> 21:13
+---
+
+Horário e data da mineração: 21/08/2025 - 20:46 --> 21:13
