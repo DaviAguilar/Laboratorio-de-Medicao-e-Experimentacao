@@ -19,7 +19,7 @@ Hipóteses informais:
 
 ## Metodologia
 
-Utilizamos a API GraphQL do GitHub para consultar os 1.000 repositórios com mais estrelas, coletando métricas como idade (em dias, a partir da data de criação), total de PRs aceitas, total de releases, dias desde a última atualização, linguagem primária e razão de issues fechadas (fechadas/total). Os dados foram paginados para cobrir os 1.000 repositórios e exportados para um arquivo CSV. A análise foi realizada com Python e a biblioteca pandas, calculando medianas para valores numéricos e contagens para categorias (ex.: linguagens). Para a RQ07, agrupamos os dados por linguagem e calculamos medianas para PRs, releases e dias desde atualização. Visualizações (gráficos de barras e boxplots) foram geradas com matplotlib para auxiliar na interpretação, mas aqui descrevemos os resultados textualmente.
+Utilizamos a API GraphQL do GitHub para consultar os 1.000 repositórios com mais estrelas, coletando métricas como idade (em dias, a partir da data de criação), total de PRs aceitas, total de releases, dias desde a última atualização, linguagem primária e razão de issues fechadas (fechadas/total). Os dados foram paginados para cobrir os 1.000 repositórios e exportados para um arquivo CSV. A análise foi realizada com Python e a biblioteca pandas, calculando medianas para valores numéricos e contagens para categorias (ex.: linguagens). Para a RQ07, agrupamos os dados por linguagem e calculamos medianas para PRs, releases e dias desde atualização. Visualizações (gráficos de barras e boxplots) foram geradas com lookerstudio para auxiliar na interpretação, mas aqui descrevemos os resultados textualmente.
 
 ## Resultados
 
