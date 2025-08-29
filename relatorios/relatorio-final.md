@@ -23,26 +23,26 @@ Utilizamos a API GraphQL do GitHub para consultar os 1.000 repositórios com mai
 A mediana da idade dos repositórios é de 3218.5 dias, o que equivale a aproximadamente 8.81 anos. Isso indica que metade dos repositórios populares tem mais de 8 anos de existência.
 - Métrica: Idade do repositório (dias)
 - Mediana: **3218.5 dias (≈ 8.81 anos)**
-- ![Gráfico RQ01](caminho/para/sua/imagem1.png)
+- ![Gráfico RQ01](relatorios/graficos/img/grafico-rq01.png)
 
 
 #### RQ02: Sistemas populares recebem muita contribuição externa?
 A mediana do total de pull requests aceitas é de 781.5. Isso sugere que metade dos repositórios recebe pelo menos 781.5 contribuições externas aceitas.
 - Métrica: Total de pull requests aceitas
 - Mediana: **781.5**
-- ![Gráfico RQ02](caminho/para/sua/imagem2.png)
+- ![Gráfico RQ02](relatorios/graficos/img/grafico-rq02.png)
 
 #### RQ03: Sistemas populares lançam releases com frequência?
 A mediana do total de releases é de 38.0. Metade dos repositórios lançou pelo menos 38 releases ao longo de sua existência.
 - Métrica: Total de releases
 - Mediana: **38.0**
-- ![Gráfico RQ03](caminho/para/sua/imagem3.png)
+- ![Gráfico RQ03](relatorios/graficos/img/grafico-rq03.png)
 
 #### RQ04: Sistemas populares são atualizados com frequência?
 A mediana do tempo até a última atualização é de 0.0 dias. Isso significa que a maioria dos repositórios populares foi atualizada recentemente (dentro do dia da coleta de dados), indicando alta atividade.
 - Métrica: Dias até a última atualização
 - Mediana: **0.0**
-- ![Gráfico RQ04](caminho/para/sua/imagem4.png)
+- ![Gráfico RQ04](relatorios/graficos/img/grafico-rq04.png)
 
 #### RQ05: Sistemas populares são escritos nas linguagens mais populares?
 Contagem por linguagem primária (top 10):
@@ -59,13 +59,13 @@ Contagem por linguagem primária (top 10):
 
 Outras linguagens aparecem com menor frequência, confirmando dominância de linguagens como Python, TypeScript e JavaScript.
 - Métrica: Linguagem primária (contagem top 10)
-- ![Gráfico RQ05](caminho/para/sua/imagem5.png)
+- ![Gráfico RQ05](relatorios/graficos/img/grafico-rq05.png)
 
 #### RQ06: Sistemas populares possuem um alto percentual de issues fechadas?
 A mediana da razão entre issues fechadas e total de issues é de 0.86. Isso indica que, em metade dos repositórios, pelo menos 86% das issues são resolvidas.
 - Métrica: Razão issues fechadas/total
 - Mediana: **0.86**
-- ![Gráfico RQ06](caminho/para/sua/imagem6.png)
+- ![Gráfico RQ06](relatorios/graficos/img/grafico-rq06.png)
 
 
 #### RQ07 (Bônus): Sistemas escritos em linguagens mais populares recebem mais contribuição externa, lançam mais releases e são atualizados com mais frequência?
