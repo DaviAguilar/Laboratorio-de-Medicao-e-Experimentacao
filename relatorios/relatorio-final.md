@@ -46,16 +46,6 @@ A mediana do tempo até a última atualização é de 0.0 dias. Isso significa q
 
 #### RQ05: Sistemas populares são escritos nas linguagens mais populares?
 Contagem por linguagem primária (top 10):
-- Python: 74 repositórios
-- TypeScript: 60 repositórios
-- JavaScript: 53 repositórios
-- Unknown: 48 repositórios
-- Go: 31 repositórios
-- C++: 23 repositórios
-- Java: 20 repositórios
-- Rust: 19 repositórios
-- C: 14 repositórios
-- Jupyter Notebook: 12 repositórios
 
 Outras linguagens aparecem com menor frequência, confirmando dominância de linguagens como Python, TypeScript e JavaScript.
 - Métrica: Linguagem primária (contagem top 10)
@@ -160,7 +150,7 @@ Linguagens populares como TypeScript e Python mostram medianas altas de PRs e re
 - **RQ03**: Mediana de 38.0 releases é razoável, alinhada à expectativa, mas abaixo de 50; muitos repositórios usam branches em vez de releases formais.
 - **RQ04**: Mediana de 0.0 dias excede a hipótese, indicando atualizações mais frequentes do que esperado – popularidade correlaciona com manutenção ativa.
 - **RQ05**: Confirmado: Python, TypeScript e JavaScript dominam, alinhado à expectativa, refletindo popularidade no ecossistema.
-- **RQ06**: Razão de 0.86 confirma alta resolução de issues, acima de 0.8, sugerindo boa governança.
+- **RQ06**: Razão de 0.76 confirma alta resolução de issues, acima de 0.7, sugerindo boa governança.
 - **RQ07**: Linguagens populares como TypeScript e Python mostram medianas altas de PRs e releases (ex.: TypeScript com 2390.5 PRs medianos vs. Lua com 68.0), confirmando a hipótese. Atualizações são uniformemente frequentes (mediana 0.0), possivelmente devido à amostra de repositórios top. Comparado a linguagens menos populares (ex.: de relatórios como GitHub Octoverse), há mais atividade em linguagens mainstream.
 
 Esses resultados destacam que popularidade no GitHub está ligada a maturidade, comunidade ativa e manutenção constante, especialmente em linguagens dominantes. Para visualizações, sugerimos boxplots por linguagem para RQ07.
