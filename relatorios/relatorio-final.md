@@ -1,5 +1,9 @@
 # Relatório Final: Características de Repositórios Populares no GitHub
 
+### Alunos:
+- André Almeida Silva
+- Davi Aguilar Nunes Oliveira
+
 ## Introdução
 
 Neste relatório, analisamos as características de repositórios populares no GitHub, com base nos 1.000 repositórios com o maior número de estrelas (dados coletados em 21/08/2025). O objetivo é responder às questões de pesquisa (RQs) propostas, focando em aspectos como maturidade, contribuições externas, frequência de releases e atualizações, linguagens de programação e taxa de resolução de issues.
