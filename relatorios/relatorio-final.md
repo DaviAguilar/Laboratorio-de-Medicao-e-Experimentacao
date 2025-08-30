@@ -42,7 +42,7 @@ A mediana do total de releases é de 38.0. Metade dos repositórios lançou pelo
 - ![Gráfico RQ03](graficos/img/grafico-rq03.png)
 
 #### RQ04: Sistemas populares são atualizados com frequência?
-A mediana do tempo até a última atualização é de 0.0 dias. Isso significa que a maioria dos repositórios populares foi atualizada recentemente (dentro do dia da coleta de dados), indicando alta atividade.
+A mediana do tempo até a última atualização é de 15 dias. Isso significa que a maioria dos repositórios populares foi atualizada recentemente (dentro do dia da coleta de dados), indicando alta atividade.
 - Métrica: Dias até a última atualização
 - Mais recente: **1**
 - ![Gráfico RQ04](graficos/img/grafico-rq04.png)
@@ -55,9 +55,8 @@ Outras linguagens aparecem com menor frequência, confirmando dominância de lin
 - ![Gráfico RQ05](graficos/img/grafico-rq05.png)
 
 #### RQ06: Sistemas populares possuem um alto percentual de issues fechadas?
-A mediana da razão entre issues fechadas e total de issues é de 0.76. Isso indica que, em metade dos repositórios, pelo menos 86% das issues são resolvidas.
+A mediana da razão entre issues fechadas e total de issues é de 0.76. Isso indica que, em metade dos repositórios, pelo menos 76% das issues são resolvidas.
 - Métrica: Razão issues fechadas/total
-- Mediana: **0.76**
 - ![Gráfico RQ06](graficos/img/grafico-rq06.png)
 
 
