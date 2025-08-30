@@ -55,7 +55,7 @@ Outras linguagens aparecem com menor frequência, confirmando dominância de lin
 - ![Gráfico RQ05](graficos/img/grafico-rq05.png)
 
 #### RQ06: Sistemas populares possuem um alto percentual de issues fechadas?
-A mediana da razão entre issues fechadas e total de issues é de 0.86. Isso indica que, em metade dos repositórios, pelo menos 86% das issues são resolvidas.
+A mediana da razão entre issues fechadas e total de issues é de 0.76. Isso indica que, em metade dos repositórios, pelo menos 86% das issues são resolvidas.
 - Métrica: Razão issues fechadas/total
 - Mediana: **0.76**
 - ![Gráfico RQ06](graficos/img/grafico-rq06.png)
