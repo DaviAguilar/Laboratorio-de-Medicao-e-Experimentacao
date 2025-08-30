@@ -44,7 +44,7 @@ A mediana do total de releases é de 38.0. Metade dos repositórios lançou pelo
 #### RQ04: Sistemas populares são atualizados com frequência?
 A mediana do tempo até a última atualização é de 0.0 dias. Isso significa que a maioria dos repositórios populares foi atualizada recentemente (dentro do dia da coleta de dados), indicando alta atividade.
 - Métrica: Dias até a última atualização
-- Mediana: **0.0**
+- Mais recente: **1**
 - ![Gráfico RQ04](graficos/img/grafico-rq04.png)
 
 #### RQ05: Sistemas populares são escritos nas linguagens mais populares?
@@ -66,7 +66,7 @@ A mediana da razão entre issues fechadas e total de issues é de 0.86. Isso ind
 - **RQ01**: A mediana de ~8.81 anos confirma a hipótese de maturidade, superando ligeiramente a expectativa de 5-10 anos. Projetos longevos ganham estrelas ao longo do tempo.
 - **RQ02**: A mediana de 781.5 PRs aceitas atende à hipótese, mostrando forte contribuição externa, mas varia; alguns repositórios têm poucas PRs, possivelmente por serem mantidos por equipes internas.
 - **RQ03**: Mediana de 38.0 releases é razoável, alinhada à expectativa, mas abaixo de 50; muitos repositórios usam branches em vez de releases formais.
-- **RQ04**: Mediana de 0.0 dias excede a hipótese, indicando atualizações mais frequentes do que esperado – popularidade correlaciona com manutenção ativa.
+- **RQ04**: Excede a hipótese esperada (30 dias), indicando atualizações mais frequentes do que esperado – popularidade correlaciona com manutenção ativa.
 - **RQ05**: Confirmado: Python, TypeScript e JavaScript dominam, alinhado à expectativa, refletindo popularidade no ecossistema.
 - **RQ06**: Razão de 0.76 confirma alta resolução de issues, acima de 0.7, sugerindo boa governança.
 
