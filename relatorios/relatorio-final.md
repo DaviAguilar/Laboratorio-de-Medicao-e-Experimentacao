@@ -70,6 +70,6 @@ A mediana da razão entre issues fechadas e total de issues é de 0.86. Isso ind
 - **RQ05**: Confirmado: Python, TypeScript e JavaScript dominam, alinhado à expectativa, refletindo popularidade no ecossistema.
 - **RQ06**: Razão de 0.76 confirma alta resolução de issues, acima de 0.7, sugerindo boa governança.
 
-Esses resultados destacam que popularidade no GitHub está ligada a maturidade, comunidade ativa e manutenção constante, especialmente em linguagens dominantes. Para visualizações, sugerimos boxplots por linguagem para RQ07.
+Esses resultados destacam que popularidade no GitHub está ligada a maturidade, comunidade ativa e manutenção constante, especialmente em linguagens dominantes. Para visualizações.
 
 ---
